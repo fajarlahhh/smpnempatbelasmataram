@@ -1,3 +1,4 @@
+@inject('kontak', 'App\Models\Kontak')
 <header id="header" class="header-no-border-bottom" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 148, 'stickySetTop': '-148px', 'stickyChangeLogo': false}">
     <div class="header-body">
         <div class="header-top header-top-style-2">
@@ -6,7 +7,7 @@
                     SMPN 14 Mataram | <strong>Galang Potensi Raih Prestasi</strong>
                 </p>
                 <p class="pull-right">
-                    <i class="fa fa-map-marker"></i> Jl. Brawijaya No.23, Cakranegara Selatan Baru
+                    <i class="fa fa-map-marker"></i> {!! $kontak->first()->kontak_alamat !!}
                 </p>
             </div>
         </div>
@@ -27,7 +28,7 @@
                                     <i class="fa fa-phone"></i>
                                 </div>
                                 <div class="feature-box-info">
-                                    <h4 class="mb-none">(0370) 633199</h4>
+                                    <h4 class="mb-none">{!! $kontak->first()->kontak_telp !!}</h4>
                                     <p><small>Kontak Sekolah</small></p>
                                 </div>
                             </div>
@@ -38,7 +39,7 @@
                                     <i class="fa fa-envelope"></i>
                                 </div>
                                 <div class="feature-box-info">
-                                    <h4 class="mb-none">smpn14mataram@gmail.com</h4>
+                                    <h4 class="mb-none">{{ $kontak->first()->kontak_email }}</h4>
                                     <p><small>E-mail Sekolah</small></p>
                                 </div>
                             </div>

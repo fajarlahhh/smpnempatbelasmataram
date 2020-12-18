@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Kegiatan;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Models\KategoriKegiatan;
 use Illuminate\Support\Facades\File;
 
 class KegiatanController extends Controller
@@ -13,19 +12,24 @@ class KegiatanController extends Controller
     //
     public function frontend(Request $req)
     {
-        return view('frontend.pages.kegiatan.index', [
-            'kategori' => KategoriKegiatan::all(),
-            'data' => Kegiatan::orderBy('kegiatan_id')->get()
-        ]);
+        if ($req->id) {
+            return view('frontend.pages.baca', [
+                'data' => Kegiatan::where('kegiatan_id', $req->id)->first()
+            ]);
+        }else{
+            return view('frontend.pages.kegiatan', [
+                'data' => Kegiatan::orderBy('kegiatan_id')->paginate(4)
+            ]);
+        }
     }
 
     public function index(Request $req)
 	{
-        $data = Kegiatan::with('kategori')->where(function($q) use ($req){
-            $q->where('kegiatan_nama', 'like', '%'.$req->cari.'%');
+        $data = Kegiatan::where(function($q) use ($req){
+            $q->where('kegiatan_judul', 'like', '%'.$req->cari.'%');
         })->paginate(10);
         $data->appends([$req->cari]);
-        return view('backend.pages.kegiatan.data.index', [
+        return view('backend.pages.kegiatan.index', [
             'data' => $data,
             'i' => ($req->input('page', 1) - 1) * 10,
             'cari' => $req->cari,
@@ -34,9 +38,9 @@ class KegiatanController extends Controller
 
 	public function tambah(Request $req)
 	{
-        return view('backend.pages.kegiatan.data.form', [
+        return view('backend.pages.kegiatan.form', [
+            'data' => null,
             'back' => Str::contains(url()->previous(), ['admin-area/kegiatan/tambah', 'admin-area/kegiatan/edit'])? '/admin-area/kegiatan': url()->previous(),
-            'kategori' => KategoriKegiatan::all(),
             'aksi' => 'Tambah'
         ]);
     }
@@ -44,14 +48,15 @@ class KegiatanController extends Controller
 	public function simpan(Request $req)
 	{
         $req->validate([
-            'kegiatan_nama' => 'required'
+            'kegiatan_judul' => 'required'
         ]);
 
         try{
             if ($req->get('ID')) {
                 $data = Kegiatan::findOrFail($req->get('ID'));
-                $data->kegiatan_nama = $req->get('kegiatan_nama');
-                $data->kategori_kegiatan_id = $req->get('kategori_kegiatan_id');
+                $data->kegiatan_judul = $req->get('kegiatan_judul');
+                $data->kegiatan_isi = $req->get('kegiatan_isi');
+                $data->operator = auth()->user()->pengguna_nama;
                 if($req->file('kegiatan_gambar')){
                     File::delete(public_path($data->kegiatan_gambar));
                     $file = $req->file('kegiatan_gambar');
@@ -71,9 +76,10 @@ class KegiatanController extends Controller
                 $file->move(public_path('uploads/kegiatan'), $nama_file);
 
                 $data = new Kegiatan();
-                $data->kegiatan_nama = $req->get('kegiatan_nama');
+                $data->kegiatan_judul = $req->get('kegiatan_judul');
+                $data->kegiatan_isi = $req->get('kegiatan_isi');
                 $data->kegiatan_gambar = '/uploads/kegiatan/'.$nama_file;
-                $data->kategori_kegiatan_id = $req->get('kategori_kegiatan_id');
+                $data->operator = auth()->user()->pengguna_nama;
                 $data->save();
             }
             return redirect($req->get('redirect')? $req->get('redirect'): 'admin-area/kegiatan');
@@ -84,10 +90,9 @@ class KegiatanController extends Controller
 
 	public function edit(Request $req)
 	{
-        return view('backend.pages.kegiatan.data.form', [
+        return view('backend.pages.kegiatan.form', [
             'data' => Kegiatan::findOrFail($req->get('id')),
             'back' => Str::contains(url()->previous(), ['admin-area/kegiatan/tambah', 'admin-area/kegiatan/edit'])? '/admin-area/kegiatan': url()->previous(),
-            'kategori' => KategoriKegiatan::all(),
             'aksi' => 'Edit'
         ]);
     }

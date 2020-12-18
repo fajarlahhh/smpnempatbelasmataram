@@ -32,7 +32,7 @@ return [
 			'title' => 'File Gambar'
         ],[
 			'url' => '/admin-area/mapel',
-			'title' => 'Mata Pelajaran'
+			'title' => 'Mata Pelajaran/Jabatan'
         ]]
 	],[
 		'icon' => 'fas fa-snowboarding',
@@ -40,16 +40,8 @@ return [
         'title' => 'Ekstrakurikuler'
     ],[
 		'icon' => 'fas fa-newspaper',
-		'title' => 'Kegiatan',
-		'url' => '#',
-		'caret' => true,
-		'sub_menu' => [[
-			'url' => '/admin-area/kegiatan',
-			'title' => 'Data Kegiatan'
-        ],[
-			'url' => '/admin-area/kategorikegiatan',
-			'title' => 'Kategori Kegiatan'
-        ]]
+		'url' => '/admin-area/kegiatan',
+        'title' => 'Kegiatan'
 	],[
 		'icon' => 'fas fa-phone',
 		'title' => 'Kontak',

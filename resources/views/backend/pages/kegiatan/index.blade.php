@@ -3,12 +3,11 @@
 @section('title', ' | Kegiatan')
 
 @section('page')
-<li class="breadcrumb-item">Kegiatan</li>
-<li class="breadcrumb-item active">Data Kegiatan</li>
+<li class="breadcrumb-item active">Kegiatan</li>
 @endsection
 
 @section('header')
-<h1 class="m-0 text-dark">Data Kegiatan</h1>
+<h1 class="m-0 text-dark">Kegiatan</h1>
 @endsection
 
 @section('subcontent')
@@ -36,9 +35,8 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>Nama Kegiatan</th>
+                                        <th>Judul Kegiatan</th>
                                         <th>Gambar</th>
-                                        <th>Kategori</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -46,9 +44,8 @@
                                     @foreach ($data as $index => $row)
                                     <tr>
                                         <td>{{ ++$i }}</td>
-                                        <td>{{ $row->kegiatan_nama }}</td>
+                                        <td>{{ $row->kegiatan_judul }}</td>
                                         <td><a href="{{ $row->kegiatan_gambar }}" target="_blank">Gambar</a></td>
-                                        <td class="text-nowrap">{{ $row->kategori? $row->kategori->kategori_kegiatan_uraian: '' }}</td>
                                         <td class="text-right" nowrap>
                                             <div class="btn-group">
                                             </div>

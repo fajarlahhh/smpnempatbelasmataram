@@ -8,7 +8,6 @@
 
 @section('page')
 <li class="breadcrumb-item">Kegiatan</li>
-<li class="breadcrumb-item">Data Kegiatan</li>
 <li class="breadcrumb-item active">{{ $aksi }} Data</li>
 @endsection
 
@@ -32,28 +31,12 @@
                                 @endif
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="control-label">Nama Kegiatan</label>
-                                        <input class="form-control" type="text" name="kegiatan_nama" value="{{ old('kegiatan_nama')? old('kegiatan_nama'): ($aksi == "Edit"? $data->kegiatan_nama: "") }}" autocomplete="off" id="kegiatan_nama" data-parsley-minlength="2" required />
+                                        <label class="control-label">Judul Kegiatan</label>
+                                        <input class="form-control" type="text" name="kegiatan_judul" value="{{ old('kegiatan_judul')? old('kegiatan_judul'): ($aksi == "Edit"? $data->kegiatan_judul: "") }}" autocomplete="off" id="kegiatan_judul" data-parsley-minlength="2" required />
                                     </div>
                                     <div class="form-group">
-                                        <label for="control-label">Kategori</label>
-                                        <select class="form-control selectpicker" name="kategori_kegiatan_id" data-live-search="true" data-style="btn-aqua" data-size="3" data-width="100%">
-                                            @foreach($kategori as $row)
-                                            @php
-                                                $selected = '';
-                                                if($aksi == 'Edit'){
-                                                    if ($data->kategori_kegiatan_id == $row->kategori_kegiatan_id) {
-                                                        $selected =  'selected';
-                                                    }
-                                                }else{
-                                                    if(old('kategori_kegiatan_id') == $row->kategori_kegiatan_id){
-                                                        $selected =  'selected';
-                                                    }
-                                                }
-                                            @endphp
-                                            <option value="{{ $row->kategori_kegiatan_id }}" {{ $selected }}>{{ $row->kategori_kegiatan_uraian }}</option>
-                                            @endforeach
-                                        </select>
+                                        <label class="control-label">Uraian</label>
+                                        <textarea class="textarea" name="kegiatan_isi">{{ old('kegiatan_isi')? old('kegiatan_isi'): ($data ? $data->kegiatan_isi: "") }}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Gambar Utama</label>
@@ -83,9 +66,19 @@
 <script src="/assets/backend/plugins/summernote/summernote-bs4.min.js"></script>
 <script>
     $(function () {
-        $('.textarea').summernote({
-            height: 400
-        })
+        $('[name="kegiatan_isi"]').summernote({
+            height: 400,
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+            ]
+        });
     })
 </script>
 @endpush

@@ -1,13 +1,14 @@
 @extends('backend.pages.main')
 
-@section('title', ' | Mata Pelajaran')
+@section('title', ' | Mata Pelajaran/Jabatan')
 
 @section('page')
-<li class="breadcrumb-item active">Mata Pelajaran</li>
+<li class="breadcrumb-item">Data Master</li>
+<li class="breadcrumb-item active">Mata Pelajaran/Jabatan</li>
 @endsection
 
 @section('header')
-<h1 class="m-0 text-dark">Mata Pelajaran</h1>
+<h1 class="m-0 text-dark">Mata Pelajaran/Jabatan</h1>
 @endsection
 
 @section('subcontent')
@@ -35,7 +36,7 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>Mata Pelajaran</th>
+                                        <th>Mata Pelajaran/Jabatan</th>
                                         <th ></th>
                                     </tr>
                                 </thead>

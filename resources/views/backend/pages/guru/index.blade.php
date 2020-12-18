@@ -1,13 +1,13 @@
 @extends('backend.pages.main')
 
-@section('title', ' | Kategori Kegiatan')
+@section('title', ' | Tenaga Pendidik')
 
 @section('page')
-<li class="breadcrumb-item active">Kategori Kegiatan</li>
+<li class="breadcrumb-item active">Tenaga Pendidik</li>
 @endsection
 
 @section('header')
-<h1 class="m-0 text-dark">Kategori Kegiatan</h1>
+<h1 class="m-0 text-dark">Tenaga Pendidik</h1>
 @endsection
 
 @section('subcontent')
@@ -17,9 +17,9 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="/admin-area/kategorikegiatan/tambah" class="btn btn-sm btn-primary">Tambah</a>
+                        <a href="/admin-area/tenagapendidik/tambah" class="btn btn-sm btn-primary">Tambah</a>
                         <div class="card-tools">
-                            <form action="/admin-area/kategorikegiatan" method="GET">
+                            <form action="/admin-area/tenagapendidik" method="GET">
                                 <div class="input-group input-group" style="width: 150px;">
                                     <input type="text" class="form-control float-right" value="{{ $cari }}" name="cari" placeholder="Search">
                                     <div class="input-group-append">
@@ -35,21 +35,24 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>Kategori Kegiatan</th>
-                                        <th ></th>
+                                        <th>Nama Tenaga Pendidik</th>
+                                        <th>Mata Pelajaran/Jabatan</th>
+                                        <th>Gambar</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($data as $index => $row)
                                     <tr>
                                         <td>{{ ++$i }}</td>
-                                        <td class="text-nowrap">{{ $row->kategori_kegiatan_uraian }}</td>
+                                        <td>{{ $row->guru_nama }}</td>
+                                        <td>{{ $row->mapel? $row->mapel->mapel_nama: '' }}</td>
+                                        <td><a href="{{ $row->guru_gambar }}" target="_blank">Gambar</a></td>
                                         <td class="text-right" nowrap>
                                             <div class="btn-group">
                                             </div>
                                             <div class="btn-group">
-                                                <a href="{{ route('kategorikegiatan.edit', array('id' => $row->kategori_kegiatan_id)) }}" class="btn btn-info"> Edit</a>
-                                                <a href="javascript:;" data-id="{{ $row->kategori_kegiatan_id }}" data-no="{{ $i }}" class="btn-danger btn btn-hapus" > Hapus</a>
+                                                <a href="javascript:;" data-id="{{ $row->tenagapendidik_id }}" data-no="{{ $i }}" class="btn-danger btn btn-hapus" > Hapus</a>
                                             </div>
                                         </td>
                                     </tr>
@@ -87,7 +90,7 @@
                 }
             });
             $.ajax({
-                url: "/admin-area/kategorikegiatan/hapus",
+                url: "/admin-area/tenagapendidik/hapus",
                 type: "POST",
                 data: {
                     "_method": 'DELETE',
@@ -97,6 +100,7 @@
                     location.reload(true);
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(xhr);
                     alert(xhr.responseJSON.message);
                 }
             });

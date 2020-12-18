@@ -3,7 +3,6 @@
 @section('title', ' | Ekstrakurikuler')
 
 @section('page')
-<li class="breadcrumb-item">Akademik</li>
 <li class="breadcrumb-item active">Ekstrakurikuler</li>
 @endsection
 

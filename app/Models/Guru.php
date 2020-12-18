@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TenagaPendidik extends Model
+class Guru extends Model
 {
     use HasFactory;
 
-    protected $table = 'tenaga_pendidik';
-    protected $primaryKey = 'tenaga_pendidik_id';
+    protected $table = 'guru';
+    protected $primaryKey = 'guru_id';
     public $timestamps = false;
 
     public function mapel()

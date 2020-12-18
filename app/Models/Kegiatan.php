@@ -10,10 +10,15 @@ class Kegiatan extends Model
     use HasFactory;
     protected $table = 'kegiatan';
     protected $primaryKey = 'kegiatan_id';
-    public $timestamps = false;
 
-    public function kategori()
+    public function getKegiatanIsiSelengkapnyaAttribute()
     {
-        return $this->belongsTo('App\Models\KategoriKegiatan', 'kategori_kegiatan_id', 'kategori_kegiatan_id');
+        if(strpos("{$this->kegiatan_isi}","</p><p>")){
+            $berita = explode('</p><p>', "{$this->kegiatan_isi}");
+            return $berita[0];
+        }else{
+            $berita = explode('. ', "{$this->kegiatan_isi}");
+            return $berita[0];
+        }
     }
 }

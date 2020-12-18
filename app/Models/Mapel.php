@@ -13,8 +13,8 @@ class Mapel extends Model
     protected $primaryKey = 'mapel_id';
     public $timestamps = false;
 
-    public function tenaga_pendidik()
+    public function guru()
     {
-        return $this->hasMany('App\Models\TenagaPendidik', 'mapel_id', 'mapel_id');
+        return $this->hasMany('App\Models\Guru', 'mapel_id', 'mapel_id');
     }
 }

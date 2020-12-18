@@ -11,7 +11,7 @@
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 18/12/2020 08:20:55
+ Date: 18/12/2020 08:52:01
 */
 
 SET NAMES utf8mb4;
@@ -149,15 +149,20 @@ INSERT INTO `kepala_sekolah` VALUES (3, 'H. Chamim Tohari, S.Pd', '<p>Dengan mem
 -- ----------------------------
 DROP TABLE IF EXISTS `kontak`;
 CREATE TABLE `kontak`  (
-  `kontak_uraian` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kontak_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `kontak_uraian` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kontak_alamat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kontak_telp` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kontak_email` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kontak_gambar` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kontak_kota` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`kontak_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of kontak
 -- ----------------------------
-INSERT INTO `kontak` VALUES ('<p>ADMIN: (0370)632533</p>', 1);
+INSERT INTO `kontak` VALUES (1, '<p>Dengan VISI ; \"Berprestasi, Berbudi Berlandaskan Iman dan Taqwa\" serta Motto ; \"Galang Potensi Raih Prestasi\". Ayo kita kembangkan prestasi anak-anak kita untuk meraih prestasi yang setinggi-timngginya dengan akhlak mulia. Dan juga mari kita dekung program pemerintah dalam mencegah penyebaran Virus Corona.</p>', 'Jl. Brawijaya No.23, Cakranegara Selatan Baru', '(0370) 633199', 'smpn14mataram@gmail.com', '/uploads/kontak/1608252257Foe1HGuXrPTZg7xI.jpg', 'Kota Mataram - Nusa Tenggara Barat');
 
 -- ----------------------------
 -- Table structure for mapel

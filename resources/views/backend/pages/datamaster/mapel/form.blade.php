@@ -1,14 +1,15 @@
 @extends('backend.pages.main')
 
-@section('title', ' | '.$aksi.' Mata Pelajaran')
+@section('title', ' | '.$aksi.' Mata Pelajaran/Jabatan')
 
 @section('page')
-<li class="breadcrumb-item">Mata Pelajaran</li>
-<li class="breadcrumb-item active">{{ $aksi }} Mata Pelajaran</li>
+<li class="breadcrumb-item">Data Master</li>
+<li class="breadcrumb-item">Mata Pelajaran/Jabatan</li>
+<li class="breadcrumb-item active">{{ $aksi }} Mata Pelajaran/Jabatan</li>
 @endsection
 
 @section('header')
-<h1 class="m-0 text-dark">{{ $aksi }} Mata Pelajaran</h1>
+<h1 class="m-0 text-dark">{{ $aksi }} Mata Pelajaran/Jabatan</h1>
 @endsection
 
 @section('subcontent')
@@ -27,7 +28,7 @@
                                 @endif
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="control-label">Mata Pelajaran</label>
+                                        <label class="control-label">Mata Pelajaran/Jabatan</label>
                                         <input class="form-control" type="text" name="mapel_nama" value="{{ old('mapel_nama')? old('mapel_nama'): ($aksi == "Edit"? $data->mapel_nama: "") }}" autocomplete="off" id="mapel_nama" data-parsley-minlength="2" required />
                                     </div>
 

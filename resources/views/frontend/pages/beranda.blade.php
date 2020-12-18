@@ -192,9 +192,35 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+<section class="section mt-none section-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 center">
+                <h2>Kegiatan / Berita<strong> Sekolah</strong></h2>
+            </div>
+        </div>
+        <div class="row mt-lg">
+            @foreach ($kegiatan as $row)
+            <div class="col-md-3">
+                <img class="img-responsive" src="{{ $row->kegiatan_gambar }}" alt="Blog">
+                <div class="recent-posts mt-md mb-lg">
+                    <article class="post">
+                        <h5><a class="text-dark" href="#">{{ $row->kegiatan_judul }}</a></h5>
+                        <p>{!! $row->kegiatan_isi_selengkapnya !!}</p>
+                        <div class="post-meta">
+                            <span><i class="fa fa-calendar"></i> {{ date('d F Y', strtotime($row->created_at)) }} </span>
+                            <span><i class="fa fa-user"></i> Oleh <a href="#">{{ $row->operator }}</a> </span>
+
+                        </div>
+                    </article>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
 </section>

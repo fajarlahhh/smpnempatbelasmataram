@@ -27,7 +27,7 @@ use App\Http\Controllers\KepalasekolahController;
 use App\Http\Controllers\KomitesekolahController;
 use App\Http\Controllers\KategoriberitaController;
 use App\Http\Controllers\SejarahsekolahController;
-use App\Http\Controllers\TenagapendidikController;
+use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KalenderakademikController;
 use App\Http\Controllers\KategorikegiatanController;
 use App\Http\Controllers\StrukturorganisasiController;
@@ -91,13 +91,6 @@ Route::group(['prefix' => 'admin-area'], function () {
             Route::delete('/hapus', [BeritaController::class, 'hapus']);
         });
 
-        Route::prefix('video')->group(function () {
-            Route::get('/', [VideoController::class, 'index'])->name('video');
-            Route::get('/tambah', [VideoController::class, 'tambah'])->name('video.tambah');
-            Route::post('/simpan', [VideoController::class, 'simpan'])->name('video.simpan');
-            Route::delete('/hapus', [VideoController::class, 'hapus']);
-        });
-
         Route::prefix('kegiatan')->group(function () {
             Route::get('/', [KegiatanController::class, 'index'])->name('kegiatan');
             Route::get('/tambah', [KegiatanController::class, 'tambah'])->name('kegiatan.tambah');
@@ -135,40 +128,11 @@ Route::group(['prefix' => 'admin-area'], function () {
             Route::delete('/hapus', [GalleryController::class, 'hapus']);
         });
 
-        Route::prefix('kalenderakademik')->group(function () {
-            Route::get('/', [KalenderakademikController::class, 'index'])->name('kalenderakademik');
-            Route::get('/tambah', [KalenderakademikController::class, 'tambah'])->name('kalenderakademik.tambah');
-            Route::post('/simpan', [KalenderakademikController::class, 'simpan'])->name('kalenderakademik.simpan');
-            Route::delete('/hapus', [KalenderakademikController::class, 'hapus']);
-        });
-
         Route::prefix('tenagapendidik')->group(function () {
-            Route::get('/', [TenagapendidikController::class, 'index'])->name('tenagapendidik');
-            Route::get('/tambah', [TenagapendidikController::class, 'tambah'])->name('tenagapendidik.tambah');
-            Route::get('/edit', [TenagapendidikController::class, 'edit'])->name('tenagapendidik.edit');
-            Route::post('/simpan', [TenagapendidikController::class, 'simpan'])->name('tenagapendidik.simpan');
-            Route::delete('/hapus', [TenagapendidikController::class, 'hapus']);
-        });
-
-        Route::prefix('tatausaha')->group(function () {
-            Route::get('/', [TatausahaController::class, 'index'])->name('tatausaha');
-            Route::get('/tambah', [TatausahaController::class, 'tambah'])->name('tatausaha.tambah');
-            Route::get('/edit', [TatausahaController::class, 'edit'])->name('tatausaha.edit');
-            Route::post('/simpan', [TatausahaController::class, 'simpan'])->name('tatausaha.simpan');
-            Route::delete('/hapus', [TatausahaController::class, 'hapus']);
-        });
-
-        Route::prefix('strukturorganisasi')->group(function () {
-            Route::get('/', [StrukturorganisasiController::class, 'index'])->name('strukturorganisasi');
-            Route::get('/tambah', [StrukturorganisasiController::class, 'tambah'])->name('strukturorganisasi.tambah');
-            Route::get('/edit', [StrukturorganisasiController::class, 'edit'])->name('strukturorganisasi.edit');
-            Route::post('/simpan', [StrukturorganisasiController::class, 'simpan'])->name('strukturorganisasi.simpan');
-            Route::delete('/hapus', [StrukturorganisasiController::class, 'hapus']);
-        });
-
-        Route::prefix('sejarahsekolah')->group(function () {
-            Route::get('/', [SejarahsekolahController::class, 'index'])->name('sejarahsekolah');
-            Route::post('/simpan', [SejarahsekolahController::class, 'simpan'])->name('sejarahsekolah.simpan');
+            Route::get('/', [GuruController::class, 'index'])->name('tenagapendidik');
+            Route::get('/tambah', [GuruController::class, 'tambah'])->name('tenagapendidik.tambah');
+            Route::post('/simpan', [GuruController::class, 'simpan'])->name('tenagapendidik.simpan');
+            Route::delete('/hapus', [GuruController::class, 'hapus']);
         });
 
         Route::prefix('visimisi')->group(function () {
@@ -209,3 +173,5 @@ Route::get('/', [DashboardController::class, 'frontend']);
 Route::get('/ekskul', [EkskulController::class, 'frontend']);
 Route::get('/prestasi', [PrestasiController::class, 'frontend']);
 Route::get('/kontak', [KontakController::class, 'frontend']);
+Route::get('/guru', [GuruController::class, 'frontend']);
+Route::get('/kegiatan', [KegiatanController::class, 'frontend']);

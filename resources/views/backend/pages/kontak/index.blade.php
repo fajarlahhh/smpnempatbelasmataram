@@ -7,7 +7,6 @@
 @endpush
 
 @section('page')
-<li class="breadcrumb-item">Profil</li>
 <li class="breadcrumb-item active">Kontak</li>
 @endsection
 
