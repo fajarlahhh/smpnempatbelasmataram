@@ -51,6 +51,10 @@ return [
 			'title' => 'Kategori Kegiatan'
         ]]
 	],[
+		'icon' => 'fas fa-phone',
+		'title' => 'Kontak',
+		'url' => '/admin-area/kontak'
+	],[
 		'icon' => 'fas fa-trophy',
         'url' => '/admin-area/prestasi',
         'title' => 'Prestasi'

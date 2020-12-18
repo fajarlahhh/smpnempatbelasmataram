@@ -62,38 +62,38 @@
 
                             </li>
                             <li class="">
-                                <a href="profil.html">
+                                <a href="profil">
                                     Profil Sekolah
                                 </a>
                             </li>
 
                             <li class="">
-                                <a href="siswa.html">
+                                <a href="siswa">
                                     Data Siswa
 
                                 </a>
                             </li>
 
                             <li class="">
-                                <a href="guru.html">
+                                <a href="guru">
                                     Data Guru
                                 </a>
                             </li>
 
                             <li class="">
-                                <a href="berita.html">
+                                <a href="kegiatan">
                                     Kegiatan Sekolah
                                 </a>
                             </li>
 
                             <li class="">
-                                <a href="prestasi.html">
+                                <a href="prestasi">
                                     Prestasi Sekolah
                                 </a>
                             </li>
 
                             <li class="">
-                                <a href="kontak.html">
+                                <a href="kontak">
                                     Kontak
                                 </a>
                             </li>
