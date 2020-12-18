@@ -4,7 +4,7 @@
 <div role="main" class="main">
     <p></p>
     <div class="container">
-        <h2>Ekstrakurikuler</h2>
+        <h2>Ekstrakurikuler <strong>Sekolah</strong></h2>
         <hr>
         <div class="row">
             @foreach ($data as $row)

@@ -51,6 +51,10 @@ return [
 			'title' => 'Kategori Kegiatan'
         ]]
 	],[
+		'icon' => 'fas fa-trophy',
+        'url' => '/admin-area/prestasi',
+        'title' => 'Prestasi'
+    ],[
 		'icon' => 'fas fa-id-card',
 		'title' => 'Profil Sekolah',
 		'url' => '#',

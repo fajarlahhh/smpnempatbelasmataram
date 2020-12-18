@@ -234,3 +234,4 @@ Route::group(['prefix' => 'admin-area'], function () {
 
 Route::get('/', [DashboardController::class, 'frontend']);
 Route::get('/ekskul', [EkskulController::class, 'frontend']);
+Route::get('/prestasi', [PrestasiController::class, 'frontend']);

@@ -27,26 +27,28 @@
                                 @endif
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="control-label">Judul</label>
-                                        <input class="form-control" type="text" name="prestasi_judul" value="{{ old('prestasi_judul')? old('prestasi_judul'): ($aksi == "Edit"? $data->prestasi_judul: "") }}" autocomplete="off" data-parsley-minlength="2" required />
+                                        <label class="control-label">Nama</label>
+                                        <input class="form-control" type="text" name="prestasi_nama" value="{{ old('prestasi_nama')? old('prestasi_nama'): ($aksi == "Edit"? $data->prestasi_nama: "") }}" autocomplete="off" data-parsley-minlength="2" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Uraian</label>
+                                        <input class="form-control" type="text" name="prestasi_uraian" value="{{ old('prestasi_uraian')? old('prestasi_uraian'): ($aksi == "Edit"? $data->prestasi_uraian: "") }}" autocomplete="off" data-parsley-minlength="2" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="control-label">Tingkat</label>
+                                        <select class="form-control selectpicker" name="prestasi_tingkat" data-live-search="true" data-style="btn-aqua" data-size="3" data-width="100%">
+                                            <option value="Tingkat Internasional">Tingkat Internasional</option>
+                                            <option value="Tingkat Nasional">Nasional</option>
+                                            <option value="Tingkat Provinsi">Tingkat Provinsi</option>
+                                            <option value="Tingkat Kabupaten/Kota">Tingkat Kabupaten/Kota</option>
+                                            <option value="Tingkat Kecamatan">Tingkat Kecamatan</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="control-label">Kategori</label>
                                         <select class="form-control selectpicker" name="prestasi_kategori" data-live-search="true" data-style="btn-aqua" data-size="3" data-width="100%">
                                             @foreach($kategori as $row)
-                                            @php
-                                                $selected = '';
-                                                if($aksi == 'Edit'){
-                                                    if ($data->prestasi_kategori == $row) {
-                                                        $selected =  'selected';
-                                                    }
-                                                }else{
-                                                    if(old('prestasi_kategori') == $row){
-                                                        $selected =  'selected';
-                                                    }
-                                                }
-                                            @endphp
-                                            <option value="{{ $row }}" {{ $selected }}>{{ $row }}</option>
+                                            <option value="{{ $row }}">{{ $row }}</option>
                                             @endforeach
                                         </select>
                                     </div>

@@ -35,7 +35,7 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>Judul</th>
+                                        <th>Nama</th>
                                         <th>Kategori</th>
                                         <th>Gambar</th>
                                         <th></th>
@@ -45,7 +45,7 @@
                                     @foreach ($data as $index => $row)
                                     <tr>
                                         <td>{{ ++$i }}</td>
-                                        <td>{{ $row->prestasi_judul }}</td>
+                                        <td>{{ $row->prestasi_nama }}</td>
                                         <td>{{ $row->prestasi_kategori }}</td>
                                         <td><a href="{{ $row->prestasi_gambar }}" target="_blank">Gambar</a></td>
                                         <td class="text-right" nowrap>

@@ -12,15 +12,16 @@ class PrestasiController extends Controller
     //
     public function frontend(Request $req)
     {
-        return view('frontend.pages.prestasi.index', [
-            'data' => Prestasi::orderBy('prestasi_id')->get()
+        return view('frontend.pages.prestasi', [
+            'data' => Prestasi::orderBy('prestasi_id')->get(),
+            'kategori' => ['Akademik', 'Non Akademik']
         ]);
     }
 
     public function index(Request $req)
 	{
         $data = Prestasi::where(function($q) use ($req){
-            $q->where('prestasi_judul', 'like', '%'.$req->cari.'%');
+            $q->where('prestasi_nama', 'like', '%'.$req->cari.'%');
         })->paginate(10);
         $data->appends([$req->cari]);
         return view('backend.pages.prestasi.index', [
@@ -35,14 +36,14 @@ class PrestasiController extends Controller
         return view('backend.pages.prestasi.form', [
             'back' => Str::contains(url()->previous(), ['admin-area/prestasi/tambah', 'admin-area/prestasi/edit'])? '/admin-area/prestasi': url()->previous(),
             'aksi' => 'Tambah',
-            'kategori' => ['Nasional', 'Provinsi', 'Kabupaten/Kota']
+            'kategori' => ['Akademik', 'Non Akademik']
         ]);
     }
 
 	public function simpan(Request $req)
 	{
         $req->validate([
-            'prestasi_judul' => 'required'
+            'prestasi_nama' => 'required'
         ]);
 
         try{
@@ -53,8 +54,10 @@ class PrestasiController extends Controller
             $file->move(public_path('uploads/prestasi'), $nama_file);
 
             $data = new Prestasi();
-            $data->prestasi_judul = $req->get('prestasi_judul');
+            $data->prestasi_nama = $req->get('prestasi_nama');
+            $data->prestasi_tingkat = $req->get('prestasi_tingkat');
             $data->prestasi_kategori = $req->get('prestasi_kategori');
+            $data->prestasi_uraian = $req->get('prestasi_uraian');
             $data->prestasi_gambar = '/uploads/prestasi/'.$nama_file;
             $data->save();
             return redirect($req->get('redirect')? $req->get('redirect'): 'admin-area/prestasi');
