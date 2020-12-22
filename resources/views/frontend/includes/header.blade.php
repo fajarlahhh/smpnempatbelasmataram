@@ -15,7 +15,7 @@
             <div class="header-row">
                 <div class="header-column">
                     <div class="header-logo">
-                        <a href="index.html">
+                        <a href="/">
                             <img alt="Porto" width="301" height="104" data-sticky-width="82" data-sticky-height="40" data-sticky-top="33" src="assets/frontend/img/logo.png">
                         </a>
                     </div>
