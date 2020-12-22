@@ -66,9 +66,6 @@ return [
             'title' => 'Informasi',
             'url' => '/admin-area/informasi'
         ],[
-            'title' => 'Prestasi',
-            'url' => '/admin-area/prestasi'
-        ],[
             'title' => 'Tenaga Pendidik',
             'url' => '/admin-area/tenagapendidik'
         ],[

@@ -30,10 +30,10 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Jumlah</label>
-                                <input class="form-control" style="margin-bottom: 10px" type="text" name="data[0][informasi_jumlah]" value="{{ old('data.informasi_jumlah.0', $data[0]->informasi_jumlah) }}" autocomplete="off" required />
-                                <input class="form-control" style="margin-bottom: 10px" type="text" name="data[1][informasi_jumlah]" value="{{ old('data.informasi_jumlah.1', $data[1]->informasi_jumlah) }}" autocomplete="off" required />
-                                <input class="form-control" style="margin-bottom: 10px" type="text" name="data[2][informasi_jumlah]" value="{{ old('data.informasi_jumlah.2', $data[2]->informasi_jumlah) }}" autocomplete="off" required />
-                                <input class="form-control" style="margin-bottom: 10px" type="text" name="data[3][informasi_jumlah]" value="{{ old('data.informasi_jumlah.3', $data[3]->informasi_jumlah) }}" autocomplete="off" required />
+                                <input class="form-control" style="margin-bottom: 10px" type="number" name="data[0][informasi_jumlah]" value="{{ old('data.informasi_jumlah.0', $data[0]->informasi_jumlah) }}" autocomplete="off" required />
+                                <input class="form-control" style="margin-bottom: 10px" type="number" name="data[1][informasi_jumlah]" value="{{ old('data.informasi_jumlah.1', $data[1]->informasi_jumlah) }}" autocomplete="off" required />
+                                <input class="form-control" style="margin-bottom: 10px" type="number" name="data[2][informasi_jumlah]" value="{{ old('data.informasi_jumlah.2', $data[2]->informasi_jumlah) }}" autocomplete="off" required />
+                                <input class="form-control" style="margin-bottom: 10px" type="number" name="data[3][informasi_jumlah]" value="{{ old('data.informasi_jumlah.3', $data[3]->informasi_jumlah) }}" autocomplete="off" required />
                             </div>
                         </div>
                     </div>

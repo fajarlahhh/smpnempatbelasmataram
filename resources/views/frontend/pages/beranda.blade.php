@@ -210,7 +210,7 @@
                 <img class="img-responsive" src="{{ $row->kegiatan_gambar }}" alt="Blog">
                 <div class="recent-posts mt-md mb-lg">
                     <article class="post">
-                        <h5><a class="text-dark" href="#">{{ $row->kegiatan_judul }}</a></h5>
+                        <h5><a class="text-dark" href="kegiatan?id={{ $row->kegiatan_id }}">{{ $row->kegiatan_judul }}</a></h5>
                         <p>{!! $row->kegiatan_isi_selengkapnya !!}</p>
                         <div class="post-meta">
                             <span><i class="fa fa-calendar"></i> {{ date('d F Y', strtotime($row->created_at)) }} </span>

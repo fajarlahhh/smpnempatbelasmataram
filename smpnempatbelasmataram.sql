@@ -11,7 +11,7 @@
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 18/12/2020 08:52:01
+ Date: 18/12/2020 15:35:14
 */
 
 SET NAMES utf8mb4;
@@ -66,6 +66,25 @@ CREATE TABLE `gallery`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Table structure for guru
+-- ----------------------------
+DROP TABLE IF EXISTS `guru`;
+CREATE TABLE `guru`  (
+  `guru_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `guru_nama` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `guru_gambar` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `mapel_id` bigint(20) NULL DEFAULT NULL,
+  PRIMARY KEY (`guru_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of guru
+-- ----------------------------
+INSERT INTO `guru` VALUES (7, 'DRA. NOOR ZAENAH', '/uploads/guru/1608272792OFDaWM35wU5ZXye0.jpg', 14);
+INSERT INTO `guru` VALUES (8, 'LALU ARTANIS, S.PD.I', '/uploads/guru/1608272840lANg7kLnvt5xO9a9.jpg', 15);
+INSERT INTO `guru` VALUES (9, 'MURIDUN, S.AG', '/uploads/guru/1608272863ho71lpEhjOdYZeO9.jpg', 9);
+
+-- ----------------------------
 -- Table structure for informasi
 -- ----------------------------
 DROP TABLE IF EXISTS `informasi`;
@@ -83,45 +102,26 @@ INSERT INTO `informasi` VALUES ('Tenaga Pendidik', 43);
 INSERT INTO `informasi` VALUES ('Rombongan Belajar', 24);
 
 -- ----------------------------
--- Table structure for kategori_kegiatan
--- ----------------------------
-DROP TABLE IF EXISTS `kategori_kegiatan`;
-CREATE TABLE `kategori_kegiatan`  (
-  `kategori_kegiatan_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `kategori_kegiatan_uraian` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`kategori_kegiatan_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of kategori_kegiatan
--- ----------------------------
-INSERT INTO `kategori_kegiatan` VALUES (1, 'Ekstrakurikuler');
-INSERT INTO `kategori_kegiatan` VALUES (2, 'PRAMUKA');
-INSERT INTO `kategori_kegiatan` VALUES (3, 'LOMBA ANTAR KELAS');
-INSERT INTO `kategori_kegiatan` VALUES (4, 'UPACARA BENDERA HUT PGRI 2020');
-INSERT INTO `kategori_kegiatan` VALUES (5, 'LOMBAH SISWA MASA PANDEMIK COVID 19');
-
--- ----------------------------
 -- Table structure for kegiatan
 -- ----------------------------
 DROP TABLE IF EXISTS `kegiatan`;
 CREATE TABLE `kegiatan`  (
   `kegiatan_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `kegiatan_nama` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `kegiatan_judul` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `kegiatan_gambar` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `kategori_kegiatan_id` bigint(20) NULL DEFAULT NULL,
-  PRIMARY KEY (`kegiatan_id`) USING BTREE,
-  INDEX `kegiatan_kategori_kegiatan_id_foreign`(`kategori_kegiatan_id`) USING BTREE,
-  CONSTRAINT `kegiatan_kategori_kegiatan_id_foreign` FOREIGN KEY (`kategori_kegiatan_id`) REFERENCES `kategori_kegiatan` (`kategori_kegiatan_id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+  `kegiatan_isi` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `operator` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`kegiatan_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of kegiatan
 -- ----------------------------
-INSERT INTO `kegiatan` VALUES (1, 'Bermain Basket', '/uploads/kegiatan/1603168121ilMBrB9cCD038oRp.jpg', 1);
-INSERT INTO `kegiatan` VALUES (2, 'Seni Tari', '/uploads/kegiatan/1604363017f3tw4k5B6JNp4RUL.jpg', 1);
-INSERT INTO `kegiatan` VALUES (3, 'Olahraga', '/uploads/kegiatan/16043630867FtQ5OclXiEkHY1q.jpg', 1);
-INSERT INTO `kegiatan` VALUES (5, 'REPORTER', '/uploads/kegiatan/1606091700Zvp0GHWW2oPbFheW.jpeg', 1);
+INSERT INTO `kegiatan` VALUES (1, 'Ombudsman NTB Desak Pemkot Atensi SMPN 14 Mataram', '/uploads/kegiatan/1608271743SGeErGIXpH4wJNbR.jpg', '<p>Ombudsman Republik Indonesia (ORI) Perwakilan NTB meminta agar Pemkot memberikan perhatian serius atas penyelesaian penggunaan gedung belajar SMPN 14 oleh SD Model Mataram.</p>', 'Administrator', '2020-12-17 00:00:00', '2020-12-17 00:00:00');
+INSERT INTO `kegiatan` VALUES (6, 'TIM SISWI SMPN 14 MATARAM JUARA 1 KRIKET', '/uploads/kegiatan/1608272090HA7jQa6TcV1cTrzg.jpg', '<p>Prestasi membanggakan ditorehkan oleh siswi SMPN 14 Mataram, dalam ajang kejuaraan liga pelajar Cabang Olahraga (Cabor) Kriket tingkat Provinsi NTB yang diselenggarakan oleh Persatuan Cricket Indonesia (PCI) NTB<br></p>', 'Administrator', '2020-12-18 14:14:50', '2020-12-18 14:14:50');
+INSERT INTO `kegiatan` VALUES (7, 'LCC, SMPN 14 MATARAM MAJU KE TINGKAT PROVINSI', '/uploads/kegiatan/1608272110SPZv0rqEP4Cit0E3.jpg', '<p>Berbagai upaya terus dilakukan Museum Negeri NTB, untuk mengenalkan sejarah dan budayadi NTB, khususnya benda bersejarah peninggalan masa lalu masyarakat Pulau Lombok dan Sumbawa.<br></p>', 'Administrator', '2020-12-18 14:15:10', '2020-12-18 14:15:10');
 
 -- ----------------------------
 -- Table structure for kepala_sekolah
@@ -172,22 +172,23 @@ CREATE TABLE `mapel`  (
   `mapel_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `mapel_nama` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`mapel_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of mapel
 -- ----------------------------
-INSERT INTO `mapel` VALUES (2, 'PRAKARYA');
-INSERT INTO `mapel` VALUES (3, 'MATEMATIKA');
-INSERT INTO `mapel` VALUES (5, 'ILMU PENGETAHUAN ALAM (IPA)');
-INSERT INTO `mapel` VALUES (6, 'ILMU PENGETAHUAN SOSIAL (IPS)');
-INSERT INTO `mapel` VALUES (7, 'BAHASA INDONESIA');
-INSERT INTO `mapel` VALUES (8, 'BAHASA INGGRIS');
-INSERT INTO `mapel` VALUES (9, 'PENDIDIKAN AGAMA');
-INSERT INTO `mapel` VALUES (10, 'PENJASKES');
-INSERT INTO `mapel` VALUES (11, 'PPKn');
-INSERT INTO `mapel` VALUES (12, 'SENI BUDAYA');
-INSERT INTO `mapel` VALUES (13, 'BIMBINGAN  DAN KONSELING (BK)');
+INSERT INTO `mapel` VALUES (2, 'Guru Prakarya');
+INSERT INTO `mapel` VALUES (3, 'Guru Matematika');
+INSERT INTO `mapel` VALUES (5, 'Guru IPA');
+INSERT INTO `mapel` VALUES (6, 'Guru IPS');
+INSERT INTO `mapel` VALUES (7, 'Guru Bahasa Indonesia');
+INSERT INTO `mapel` VALUES (8, 'Guru Bahasa Inggris');
+INSERT INTO `mapel` VALUES (9, 'Guru Agama Islam');
+INSERT INTO `mapel` VALUES (10, 'Guru Penjaskes');
+INSERT INTO `mapel` VALUES (11, 'Guru PKN');
+INSERT INTO `mapel` VALUES (12, 'Guru Seni Budaya');
+INSERT INTO `mapel` VALUES (14, 'Kepala TU');
+INSERT INTO `mapel` VALUES (15, 'Wakasek Humas');
 
 -- ----------------------------
 -- Table structure for pengguna

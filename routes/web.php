@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\GuruController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MapelController;
+use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\EkskulController;
@@ -27,7 +29,7 @@ use App\Http\Controllers\KepalasekolahController;
 use App\Http\Controllers\KomitesekolahController;
 use App\Http\Controllers\KategoriberitaController;
 use App\Http\Controllers\SejarahsekolahController;
-use App\Http\Controllers\GuruController;
+use App\Http\Controllers\TentangsekolahController;
 use App\Http\Controllers\KalenderakademikController;
 use App\Http\Controllers\KategorikegiatanController;
 use App\Http\Controllers\StrukturorganisasiController;
@@ -155,6 +157,16 @@ Route::group(['prefix' => 'admin-area'], function () {
             Route::post('/simpan', [KontakController::class, 'simpan'])->name('kontak.simpan');
         });
 
+        Route::prefix('tentangsekolah')->group(function () {
+            Route::get('/', [TentangsekolahController::class, 'index'])->name('tentangsekolah');
+            Route::post('/simpan', [TentangsekolahController::class, 'simpan'])->name('tentangsekolah.simpan');
+        });
+
+        Route::prefix('datasiswa')->group(function () {
+            Route::get('/', [SiswaController::class, 'index'])->name('datasiswa');
+            Route::post('/simpan', [SiswaController::class, 'simpan'])->name('datasiswa.simpan');
+        });
+
         Route::prefix('informasi')->group(function () {
             Route::get('/', [InformasiController::class, 'index'])->name('informasi');
             Route::post('/simpan', [InformasiController::class, 'simpan'])->name('informasi.simpan');
@@ -175,3 +187,5 @@ Route::get('/prestasi', [PrestasiController::class, 'frontend']);
 Route::get('/kontak', [KontakController::class, 'frontend']);
 Route::get('/guru', [GuruController::class, 'frontend']);
 Route::get('/kegiatan', [KegiatanController::class, 'frontend']);
+Route::get('/profil', [TentangsekolahController::class, 'frontend']);
+Route::get('/siswa', [SiswaController::class, 'frontend']);
