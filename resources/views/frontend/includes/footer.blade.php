@@ -28,7 +28,7 @@
             <div class="row">
 
                 <div class="col-md-11">
-                    <p>© Copyright 2020. SMPN 14 Mataram - Support System by <a href="www.lestari-informatika.com"><strong>Lestari Informatika</strong></a>. All Rights Reserved.</p>
+                    <p>© Copyright 2020. SMPN 14 Mataram - Support System by <a href="https://lestari-informatika.com"><strong>Lestari Informatika</strong></a>. All Rights Reserved.</p>
                 </div>
             </div>
         </div>
