@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\EkskulController;
 use App\Http\Controllers\KontakController;
@@ -142,6 +143,11 @@ Route::group(['prefix' => 'admin-area'], function () {
             Route::post('/simpan', [VisimisiController::class, 'simpan'])->name('visimisi.simpan');
         });
 
+        Route::prefix('alumni')->group(function () {
+            Route::get('/', [AlumniController::class, 'index'])->name('alumni');
+            Route::post('/simpan', [AlumniController::class, 'simpan'])->name('alumni.simpan');
+        });
+
         Route::prefix('kepalasekolah')->group(function () {
             Route::get('/', [KepalasekolahController::class, 'index'])->name('kepalasekolah');
             Route::post('/simpan', [KepalasekolahController::class, 'simpan'])->name('kepalasekolah.simpan');
@@ -189,3 +195,4 @@ Route::get('/guru', [GuruController::class, 'frontend']);
 Route::get('/kegiatan', [KegiatanController::class, 'frontend']);
 Route::get('/profil', [TentangsekolahController::class, 'frontend']);
 Route::get('/siswa', [SiswaController::class, 'frontend']);
+Route::get('/alumni', [AlumniController::class, 'frontend']);

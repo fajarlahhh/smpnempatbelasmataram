@@ -82,6 +82,12 @@
                             </li>
 
                             <li class="">
+                                <a href="alumni">
+                                    Alumni
+                                </a>
+                            </li>
+
+                            <li class="">
                                 <a href="kegiatan">
                                     Kegiatan Sekolah
                                 </a>

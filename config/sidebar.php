@@ -60,6 +60,9 @@ return [
             'title' => 'Kepala Sekolah',
             'url' => '/admin-area/kepalasekolah'
         ],[
+            'title' => 'Alumni',
+            'url' => '/admin-area/alumni'
+        ],[
             'title' => 'Data Siswa',
             'url' => '/admin-area/datasiswa'
         ],[
