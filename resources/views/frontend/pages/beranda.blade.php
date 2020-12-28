@@ -131,6 +131,24 @@
         </div>
     </div>
 </section>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-7">
+            <h2>Profil Singkat Sekolah</strong></h2>
+            <p class="lead">Bulan Juni/ Juli 1991 penerimaan siswa baru pertama sebagai cikal bakal SMP Negeri 4 Cakranegara yang berfilial pada SMP Negeri 2 Cakranegara yang berlokasi di jalan Anak Agung Ngurah (sekarang BDN/Bank Mandiri) jumlah siswa diterima 40 orang, dengan Kepala Sekolah bapak Ketjir Yasa.</p>
+
+            <p>Bulan desember 1992 SMP Negeri 2 Cakranegara pindah gedung ke lokasi jalan Lalu Mesir di Babakan, maka cikal bakal SMP Negeri 4 yang berfilial mengikutinya. Pada awal 20 Maret 1993 cikal bakal SMP Negeri 4 Cakranegara pindah menempati gedung sendiri yang berlokasi di jalan Brawijaya No.23 sampai dengan sekarang. <a href="/profil"><strong>Baca Selengkapnya...</strong></a></p>
+
+            <hr class="tall">
+        </div>
+        <div class="col-md-5">
+            <h4>Video <strong>Profil</strong></h4>
+            <iframe width="460" height="315" src="https://www.youtube.com/embed/gxIAwefqO44" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <hr>
+        </div>
+    </div>
+</div>
 
 <section class="section section-primary">
     <div class="container">
